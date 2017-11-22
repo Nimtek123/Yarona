@@ -30,7 +30,7 @@
     <platform name="windows">
         <icon height="50" platform="windows" src="res/icon/android/icon-48-mdpi.png" width="50" />
         <splash height="300" platform="windows" src="res/screen/android/screen-hdpi-portrait.png" width="620" />
-        <icon height="120" platform="windows" src="icon density="xhdpi" src="res/icon/android/icon-96-xhdpi.png" width="120" />
+        <icon height="120" platform="windows" src="icon src="res/icon/android/icon-96-xhdpi.png" width="120" />
         <splash height="1920" platform="windows" src="res/screen/android/screen-hdpi-landscape.png" width="1152" />
     </platform>
     <engine name="android" spec="^6.4.0" />
