@@ -1,0 +1,33 @@
+{
+  "prepare_queue": {
+    "installed": [],
+    "uninstalled": []
+  },
+  "config_munge": {
+    "files": {}
+  },
+  "installed_plugins": {
+    "cordova-plugin-whitelist": {
+      "PACKAGE_NAME": "opex.co.za.yarona"
+    },
+    "cordova-plugin-device": {
+      "PACKAGE_NAME": "opex.co.za.yarona"
+    },
+    "cordova-plugin-device-orientation": {
+      "PACKAGE_NAME": "opex.co.za.yarona"
+    },
+    "cordova-plugin-inappbrowser": {
+      "PACKAGE_NAME": "opex.co.za.yarona"
+    },
+    "cordova-plugin-network-information": {
+      "PACKAGE_NAME": "opex.co.za.yarona"
+    },
+    "cordova-plugin-splashscreen": {
+      "PACKAGE_NAME": "opex.co.za.yarona"
+    },
+    "cordova-plugin-geolocation": {
+      "PACKAGE_NAME": "opex.co.za.yarona"
+    }
+  },
+  "dependent_plugins": {}
+}
