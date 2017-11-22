@@ -1,0 +1,71 @@
+﻿
+<div class="navbar">
+    <div class="navbar-inner">
+        <div class="left"><a href="index.html" class="back link"> <i class="icon icon-back"></i><span>Back</span></a></div>
+        <div class="center sliding">Fares</div>
+        <div class="right"><a href="#" data-panel="left" class="link open-panel icon-only"><i class="icon icon-bars"></i></a></div>
+    </div>
+</div>
+<div class="pages">
+    <div data-page="fares" class="page">
+        <div class="page-content">
+            <div class="content-block">
+                <div class="col-md-12">
+                    <div class="widget-title-2"><i class="fa fa-calculator"></i> Fare Calculator</div>
+                    <div class="list-block">
+                        <ul>
+                            <li><a href="#" class="item-link smart-select">
+                                    <select id="route_from"  name="route_from">
+                                        <option value="F-1 Bester">F-1 Bester Route</option>
+                                        <option value="F-2 Assegaai">F-2 Assegaai Route</option>
+                                        <option value="F-3 Dr Moroka">F-3 Dr Moroka Route</option>
+                                        <option value="F-4 Monareng">F-4 Monareng Route</option>
+                                        <option value="F-5 Moumo">F-5 Moumo Route</option>
+                                        <option value="F-6  Motsatsi">F-6  Motsatsi Route</option>
+                                        <option value="F-7 Makhani">F-7 Makhani Route</option>
+                                        <option value="F-8 Foord">F-8 Foord Route</option>
+                                    </select>
+                                    <div class="item-content">
+                                        <div class="item-inner">
+                                            <div class="item-title label">From:</div>
+                                            <div class="item-after">F-1 Bester Route</div></div>
+                                    </div></a>
+                            </li>
+                            <li><a href="#" class="item-link smart-select">
+                                    <select id="route_to"  name="route_to">
+                                        <option value="F-1 Bester">F-1 Bester Route</option>
+                                        <option value="F-2 Assegaai">F-2 Assegaai Route</option>
+                                        <option value="F-3 Dr Moroka">F-3 Dr Moroka Route</option>
+                                        <option value="F-4 Monareng">F-4 Monareng Route</option>
+                                        <option value="F-5 Moumo">F-5 Moumo Route</option>
+                                        <option value="F-6  Motsatsi">F-6  Motsatsi Route</option>
+                                        <option value="F-7 Makhani">F-7 Makhani Route</option>
+                                        <option value="F-8 Foord">F-8 Foord Route</option>
+                                    </select>
+                                    <div class="item-content">
+                                        <div class="item-inner">
+                                            <div class="item-title label">To:</div>
+                                            <div class="item-after">F-1 Bester Route</div></div>
+                                    </div></a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="form-group text-center">
+                        <div class="col-md-12">
+                            <div class="col-50 text-center"><button type="button" id="calfare" class="btn btn-success" onclick="calculateFare()">Calculate</button></div>
+                        </div>
+                        <div class="clearfix"></div>
+
+                    </div>
+                    <div class="widget-title-2">Fares</div>
+                    <div class="list-block accordion-list">
+                        <ul  id="fares">
+
+                        </ul>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>

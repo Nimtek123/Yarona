@@ -1,0 +1,33 @@
+{
+  "prepare_queue": {
+    "installed": [],
+    "uninstalled": []
+  },
+  "config_munge": {
+    "files": {}
+  },
+  "installed_plugins": {
+    "cordova-plugin-device": {
+      "PACKAGE_NAME": "Yarona"
+    },
+    "cordova-plugin-device-orientation": {
+      "PACKAGE_NAME": "Yarona"
+    },
+    "cordova-plugin-geolocation": {
+      "PACKAGE_NAME": "Yarona"
+    },
+    "cordova-plugin-inappbrowser": {
+      "PACKAGE_NAME": "Yarona"
+    },
+    "cordova-plugin-network-information": {
+      "PACKAGE_NAME": "Yarona"
+    },
+    "cordova-plugin-splashscreen": {
+      "PACKAGE_NAME": "Yarona"
+    },
+    "cordova-plugin-whitelist": {
+      "PACKAGE_NAME": "Yarona"
+    }
+  },
+  "dependent_plugins": {}
+}

@@ -1,0 +1,584 @@
+﻿<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
+        <meta name="apple-mobile-web-app-capable" content="yes">
+        <meta name="apple-mobile-web-app-status-bar-style" content="black">
+        <title>Yarona</title>
+        <!-- Path to Framework7 Library CSS-->
+        <link rel="stylesheet" href="css/framework7.ios.min.css">
+        <!-- Path to your custom app styles-->
+        <link rel="stylesheet" href="css/my-app.css">
+
+        <link rel="stylesheet" href="css/framework7.material.colors.min.css">
+        <link rel="stylesheet" href="css/yarona.css">
+        <link rel="stylesheet" href="css/bootstrap.min.css">
+        <link rel="stylesheet" href="css/bootstrap-toggle.min.css">
+        <link href="fontawesome/css/font-awesome.min.css" rel="stylesheet">
+        <style>
+            /* Optional: Makes the sample page fill the window. */
+
+            .controls {
+                margin-top: 10px;
+                border: 1px solid transparent;
+                border-radius: 2px 0 0 2px;
+                box-sizing: border-box;
+                -moz-box-sizing: border-box;
+                height: 32px;
+                outline: none;
+                box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+            }
+            .list-block {
+                font-size: 14px;
+            }
+            .content-block {
+                padding: 0;
+            }
+            .content-block-title {
+                white-space: pre-wrap;
+                margin: 35px 0 0;
+            }
+            .btn-success {
+                background: #76bd22;
+            }
+           
+
+            #origin-input,
+            #destination-input {
+                background-color: #fff;
+                font-family: Roboto;
+                font-size: 15px;
+                font-weight: 300;
+                margin-left: 12px;
+                padding: 0 11px 0 13px;
+                text-overflow: ellipsis;
+                width: 200px;
+            }
+
+            #origin-input:focus,
+            #destination-input:focus {
+                border-color: #4d90fe;
+            }
+
+            #mode-selector {
+                color: #fff;
+                background-color: #4d90fe;
+                margin-left: 12px;
+                padding: 5px 11px 0px 11px;
+            }
+
+            #mode-selector label {
+                font-family: Roboto;
+                font-size: 13px;
+                font-weight: 300;
+            }
+            .list-block .item-title.label {
+                width: auto;
+                font-weight: normal;
+                font-size: 14px;
+            }
+            .list-block .item-content {
+            }
+
+            #routemap {
+                height: 600px;
+                width: 100%;
+                height: 300px;
+
+            }
+            .list-block .item-media {
+                width: 20px;
+            }
+            #map {
+                height: 400px;
+                width: 100%;
+            }
+
+            /* Always set the map height explicitly to define the size of the div
+             * element that contains the map. */
+            @media screen and (min-width: 768px) {
+                #routemap {
+                    height: 550px;
+                    width: 100%;
+                    max-height: 500px;
+
+                }
+            }
+
+
+            /* Optional: Makes the sample page fill the window. */
+            html, body, .views, .page, .pages, .view, .page-content, li, .content-block-inner {
+                height: 100%;
+                margin: 0;
+                padding: 0;
+                background: #404040;
+                color: #fff;
+                z-index: 0;
+            }
+            .table>thead>tr>th, .table>tbody>tr>th, .table>tfoot>tr>th, .table>thead>tr>td, .table>tbody>tr>td, .table>tfoot>tr>td {
+                background: #404040;
+                color: #fff;
+            }
+            span.ro {
+                display: block;
+                float: left;
+                top: 0;
+                left: 1px;
+                bottom: 0;
+                width: 12px;
+                height: 24px;
+
+            }
+            .btn-warning {
+                background: #ff5722;
+                border-color: #ff5722;
+            }
+
+            .navbar-inner a {
+                color: #fff !important;
+            }
+            .table-lilac thead tr th {
+                background-color: #81b71a !important;
+                border-color: #81b71a #81b71a #6b9618 !important;
+                color: #fff;
+            }
+            .row .half {
+                padding: 0px 0px 0px 5px;
+                width: 30%;
+                float: left;
+            }
+
+            .nav-tabs>li.active>a, .nav-tabs>li.active>a:hover, .nav-tabs>li.active>a:focus {
+                background: #76bd22;
+                color:#fff !important;
+            }
+            i.icon.icon-back {
+                background-image:url("data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D'http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg'%20viewBox%3D'0%200%2012%2020'%3E%3Cpath%20d%3D'M10%2C0l2%2C2l-8%2C8l8%2C8l-2%2C2L0%2C10L10%2C0z'%20fill%3D'%23ffffff'%2F%3E%3C%2Fsvg%3E");
+            }
+            i.icon.icon-bars{width:24px;
+                             height:24px;
+                             background-image:url("data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D'http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg'%20width%3D'24'%20height%3D'24'%20viewBox%3D'0%200%2024%2024'%3E%3Cpath%20d%3D'M3%2018h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z'%20fill%3D'%23ffffff'%2F%3E%3C%2Fsvg%3E")}
+            .toggle-off.btn {
+                padding-left: 15px !important;
+                text-align: left;
+            }
+            #routes .toggle {
+                width: 95% !important;
+                float: left;
+            }
+        </style>
+    </head>
+    <body>
+        <!-- Status bar overlay for fullscreen mode-->
+        <div class="statusbar-overlay"></div>
+        <!-- Panels overlay-->
+        <div class="panel-overlay"></div>
+        <!-- Left panel with reveal effect-->
+        <div class="panel panel-left panel-cover" style="border: none">
+            <!-- Left view-->
+            <div class="view view-left navbar-through">
+                <div class="navbar">
+                    <div class="navbar-inner">
+                        <div class="left"><img src="img/logo.png" height="50"></div>
+                        <div class="center sliding">Yarona</div>
+                        <div class="right"></div>
+                    </div>
+                </div>
+                <div class="pages">
+                    <div data-page="index-left" class="page">
+                        <div class="page-content">
+                            <div class="list-block">
+                                <ul>
+                                    <li><a href="index.html" data-view=".view-main" class="item-link close-panel" onclick="fatfreeApi('alertshome', 'alerts/all')">
+                                            <div class="item-content">
+                                                <div class="item-media"><i class="fa fa-home"></i></div>
+                                                <div class="item-inner">
+                                                    <div class="item-title">Home</div>
+                                                </div>
+                                            </div></a></li>
+                                             <li><a href="stops_near_me.html" data-view=".view-main" class="item-link close-panel" onclick="fatfreeApi('stops', 'stops_near_me')">
+                                            <div class="item-content">
+                                                <div class="item-media"><i class="fa fa-bus"></i></div>
+                                                <div class="item-inner">
+                                                    <div class="item-title">Stops Near Me</div>
+                                                </div>
+                                            </div></a></li>
+                                    <li><a href="timetables.html" data-view=".view-main" class="item-link close-panel" onclick="fatfreeApi('timetable', 'timetable')">
+                                            <div class="item-content">
+                                                <div class="item-media"><i class="fa fa-clock-o"></i></div>
+                                                <div class="item-inner">
+                                                    <div class="item-title">Timetables</div>
+                                                </div>
+                                            </div></a></li>
+
+                                    <li><a href="fares.html" data-view=".view-main" class="item-link close-panel" onclick="fatfreeApi('fares', 'fares')">
+                                            <div class="item-content">
+                                                <div class="item-media"><i class="fa fa-money"></i></div>
+                                                <div class="item-inner">
+                                                    <div class="item-title">Fares</div>
+                                                </div>
+                                            </div></a></li>
+                                    <li><a href="stations_stops_routes.html" data-view=".view-main" class="item-link close-panel" onclick="fatfreeApi('landing', 'stations_routes')">
+                                            <div class="item-content">
+                                                <div class="item-media"><i class="fa fa-road"></i></div>
+                                                <div class="item-inner">
+                                                    <div class="item-title">Stations Routes & Stops</div>
+                                                </div>
+                                            </div></a></li>
+                                    <li><a href="services.html" data-view=".view-main" class="item-link close-panel"  onclick="fatfreeApi('alerts', 'alerts/all')">
+                                            <div class="item-content">
+                                                <div class="item-media"><i class="fa fa-warning"></i></div>
+                                                <div class="item-inner">
+                                                    <div class="item-title">Service Alerts</div>
+                                                </div>
+                                            </div></a></li>
+                                    <li><a href="news.html" data-view=".view-main" class="item-link close-panel"  onclick="fatfreeApi('news', 'news/all')">
+                                            <div class="item-content">
+                                                <div class="item-media"><i class="fa fa-newspaper-o"></i></div>
+                                                <div class="item-inner">
+                                                    <div class="item-title">Latest News</div>
+                                                </div>
+                                            </div></a></li>
+                                    <li><a href="events.html" data-view=".view-main" class="item-link close-panel" onclick="fatfreeApi('events', 'events/all')">
+                                            <div class="item-content">
+                                                <div class="item-media"><i class="fa fa-calendar"></i></div>
+                                                <div class="item-inner">
+                                                    <div class="item-title">Upcoming Events</div>
+                                                </div>
+                                            </div></a></li>
+                                    <li><a href="report.html" data-view=".view-main" class="item-link close-panel">
+                                            <div class="item-content">
+                                                <div class="item-media"><i class="fa fa-comment"></i></div>
+                                                <div class="item-inner">
+                                                    <div class="item-title">Report An Issue</div>
+                                                </div>
+                                            </div></a></li>
+
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Views-->
+        <div class="views">
+            <!-- Right view, it is main view-->
+            <div class="view view-main navbar-through">
+                <div class="navbar">
+                    <div class="navbar-inner">
+                        <div class="left"><a href="#" data-panel="left" class="link open-panel icon-only" style="color:#fff !important"><i class="icon icon-bars" style="color:#fff !important"></i></a></div>
+                        <div class="center sliding">Yarona</div>
+                        <div class="right"></div>
+                    </div>
+                </div>
+                <!-- Pages-->
+                <div class="pages">
+                    <!-- Page, data-page contains page name-->
+                    <div data-page="index-1" class="page" style="padding-left: 0px;background: url(http://yarona.opexdev.co.za/admin/uploads/art793.jpg); background-repeat: no-repeat; background-size: contain; z-index: 0; background-size: cover;">
+                        <!-- Scrollable page content-->
+                        <div class="page-content"  style="background: rgba(0, 0, 0, 0.65); z-index:1">
+                            <div class="content-block" >
+                                <div class="col-sm-12">
+                                    <div class="">
+                                        <div class="row">
+                                            <div class="col-xs-3">
+                                                <div class="widget-icon">
+                                                    <i class="fa fa-bus"></i>
+                                                </div>
+                                            </div>
+                                            <div class="col-xs-9">
+                                                <div class="widget-title-1">Plan Your</div>
+                                                <div class="widget-title-2">Trip</div>
+                                            </div>
+                                        </div>
+                                        <form class="list-block">
+                                            <ul style="background: transparent">
+                                                <li style="background: rgba(0, 0, 0, 0.65); ">
+                                                    <div class="item-content">
+                                                        <div class="item-media"><i class="fa fa-flag"></i></div>
+                                                        <div class="item-inner"> 
+                                                            <div class="item-input">
+                                                                <input id="txtFrom" type="text" placeholder="From" autocomplete="off" class="form-control" >
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </li>
+                                                <li style="background: rgba(0, 0, 0, 0.65); ">
+                                                    <div class="item-content">
+                                                        <div class="item-media"><i class="fa fa-flag-checkered"></i></div>
+                                                        <div class="item-inner"> 
+                                                            <div class="item-input">
+                                                                <input id="txtTo" type="text" placeholder="To" autocomplete="off" class="form-control">
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </li>
+                                                <!--li style="background: rgba(0, 0, 0, 0.65); ">
+                                                    <div class="item-content">
+                                                        <div class="item-media"><i class="fa fa-calendar"></i></div>
+                                                        <div class="item-inner"> 
+                                                            <div class="item-input">
+                                                                <div class="col-xs-6" style="padding: 0px;">
+                                                                    <input id="txtDate" type="date" placeholder="Date" class="form-control">
+                                                                </div>
+                                                                <div class="col-xs-6">
+                                                                    <input id="txtTime" type="time" placeholder="Time" class="form-control">
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </li>
+                                                <li style="background: rgba(0, 0, 0, 0.65); ">
+                                                    <div class="item-content">
+                                                        <div class="item-media"></div>
+                                                        <div class="item-inner"> 
+                                                            <div class="item-input">
+                                                                <div class="col-xs-6" style="padding-right: 0px;">
+                                                                    <button id="btnDeparting" type="button" class="btn btn-block btn-default">Departing</button>
+                                                                </div>
+                                                                <div class="col-xs-6">
+                                                                    <button id="btnArriving" type="button" class="btn btn-block btn-default">Arriving</button>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </li-->
+                                                <li style="background: rgba(0, 0, 0, 0.65); "><a href="#" class="item-link smart-select">
+                                                        <select name="travelmode" id="travelmode">
+                                                            <option value="DRIVING" selected="selected">Driving</option>
+                                                            <option value="TRANSIT">Transit</option>
+                                                            <option value="WALKING">Walking</option>
+                                                        </select>
+                                                        <div class="item-content">
+                                                            <div class="item-inner">
+                                                                <div class="item-title">Travel Mode</div>
+                                                                <div class="item-after">Driving</div></div>
+                                                        </div></a>
+                                                </li>
+
+                                            </ul>
+                                            <br>
+                                            <div class="form-group text-center">
+                                                <div class="col-md-12">
+                                                    <div class="col-50 text-center"><button type="button" id="btnmyTrip" class="btn btn-success">PLAN MY TRIP NOW</button></div>
+                                                </div>
+                                                <div class="clearfix"></div>
+
+                                            </div>
+                                        </form>
+
+                                        <hr class="widget-line-light">
+                                        <div class="widget-title-2"><i class="fa fa-warning text-danger"></i> Service Alerts</div>
+                                        <div class="list-block">
+                                            <ul id="alertshome">
+                                            </ul>
+
+                                        </div>
+
+                                    </div>
+
+
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="popup fare-popup">
+            <div class="view navbar-fixed">
+                <div class="pages">
+                    <div class="page">
+                        <div class="navbar">
+                            <div class="navbar-inner">
+                                <div class="center">Fare Calculator</div>
+                                <div class="right"><a href="#" class="link close-popup">close</a></div>
+                            </div>
+                        </div>
+                        <div class="page-content">
+                            <div class="content-block" >
+                                <div class="col-md-12">
+                                    <div class="widget-title-2" style="font-size: 20px"> <span id="dispfrom"></span>
+                                        <span class="color-deeporange">To </span><span id="dispto"></span>
+                                    </div><br>
+                                    <div class="widget-title-2" style="font-size: 16px">Fare Estimate: <span class="color-deeporange">R8.50</span></div>
+                                    
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="popup map-popup">
+            <div class="view navbar-fixed">
+                <div class="pages">
+                    <div class="page">
+                        <div class="navbar">
+                            <div class="navbar-inner">
+                                <div class="center">My Trip</div>
+                                <div class="right"><a href="#" class="link close-popup">close</a></div>
+                            </div>
+                        </div>
+                        <div class="page-content">
+                            <div class="content-block" style="background:#d4d4d4;">
+                                <div id="right-panel"></div>
+                                <div id="map" style="z-index: 5003"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Path to Framework7 Library JS-->
+        <script type="text/javascript" src="js/framework7.js"></script>
+        <!-- Path to your app js-->
+        <script type="text/javascript" src="js/my-app.js?22"></script>
+        <script type="text/javascript" src="js/jquery.js"></script>
+        <script type="text/javascript" src="js/bootstrap.min.js"></script>
+        <script type="text/javascript" src="cordova.js"></script>
+        <script type="text/javascript" src="js/index.js"></script>
+        <script type="text/javascript" src="js/bootstrap-toggle.min.js"></script>
+        <script>
+            
+                                        function calculateFare() {
+                                            var routefrom = $("#route_from").val();
+                                            var routeto = $("#route_to").val();
+                                            
+                                            $("#dispfrom").text(routefrom);
+                                            $("#dispto").text(routeto);
+                                            myApp.popup('.fare-popup');
+
+                                        }
+
+                                        var serverHost = "http://yarona.opexdev.co.za/admin/";
+                                        function sendMessage() {
+                                            myApp.showIndicator();
+                                            $.ajax({
+                                                type: "POST",
+                                                url: serverHost + 'app/message',
+                                                data: $("#userContact").serialize(),
+                                                success: function (data) {
+                                                    var userData = data.split("_");
+                                                    var success = userData[0];
+                                                    if (success == 'success') {
+                                                        myApp.hideIndicator();
+                                                        alert('Message has been sent');
+                                                        location.reload();
+                                                    } else
+                                                        alert(data);
+                                                },
+                                                error: function (data) {
+                                                    console.log('An error occurred.');
+                                                    console.log(data);
+                                                },
+                                            });
+                                        }
+
+
+
+                                        function fatfreeApi(divID, ajaxaction) {
+                                            myApp.showIndicator();
+                                            $.ajax({
+                                                type: "POST",
+                                                url: serverHost + 'app/' + ajaxaction,
+                                                data: "HTML",
+                                                success: function (data) {
+                                                    $("#" + divID).html(data);
+                                                   
+                                                },
+                                                error: function (data) {
+                                                    console.log('An error occurred.');
+                                                    console.log(data);
+                                                },
+                                            });
+                                            myApp.hideIndicator();
+                                        }
+                                         
+                                        fatfreeApi('alertshome', 'alerts/all');
+
+        </script>
+        <script>
+           
+            function initMap() {
+
+                var input = document.getElementById('txtFrom');
+                var autocomplete = new google.maps.places.Autocomplete(input);
+
+                var txtTo = document.getElementById('txtTo');
+                var autocomplete = new google.maps.places.Autocomplete(txtTo);
+
+
+                autocomplete.addListener('place_changed', function () {
+                    var place = autocomplete.getPlace();
+                    if (!place.geometry) {
+                        // User entered the name of a Place that was not suggested and
+                        // pressed the Enter key, or the Place Details request failed.
+                        myApp.alert("No details available for input: '" + place.name + "'");
+                        return;
+                    }
+
+
+                });
+
+
+                //var control = document.getElementById('floating-panel');
+                //control.style.display = 'block';
+                //map.controls[google.maps.ControlPosition.TOP_CENTER].push(control);
+
+
+                /*var onChangeHandler = function () {
+                    
+                    calculateAndDisplayRoute(directionsService, directionsDisplay);
+                };*/
+
+                document.getElementById('btnmyTrip').addEventListener('click', calculateAndDisplayRoute);
+                //document.getElementById('txtTo').addEventListener('change', onChangeHandler);
+                
+                
+            }
+               
+
+            function calculateAndDisplayRoute() {
+                myApp.showIndicator();
+                myApp.popup('.map-popup');
+                $("#right-panel").html('');
+                var directionsDisplay = new google.maps.DirectionsRenderer;
+                var directionsService = new google.maps.DirectionsService;
+                var map = new google.maps.Map(document.getElementById('map'), {
+                    zoom: 12,
+                    center: {lat: -25.6544483, lng: 27.255854}
+                });
+                directionsDisplay.setMap(map);
+                directionsDisplay.setPanel(document.getElementById('right-panel'));
+                var start = document.getElementById('txtFrom').value;
+                var end = document.getElementById('txtTo').value;
+                var travelmode = $('#travelmode').val();
+                travelmode.toUpperCase();
+                directionsService.route({
+                    origin: start,
+                    destination: end,
+                    travelMode: travelmode
+                }, function (response, status) {
+                    if (status === 'OK') {
+                        myApp.hideIndicator();
+                        directionsDisplay.setDirections(response);
+                        
+                    } else {
+                        myApp.hideIndicator();
+                        myApp.alert('Directions request failed due to ' + status);
+                    }
+                });
+
+            }
+        </script>
+        <script async defer
+                src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBYphJNuZgJT6oV5Uru3davK5Rv0dIIWJs&libraries=places&callback=initMap">
+        </script>
+      
+    </body>
+</html>

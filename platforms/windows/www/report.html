@@ -1,0 +1,142 @@
+﻿<div data-page="fares" class="page">
+    <div class="navbar">
+        <div class="navbar-inner">
+            <div class="left"><a href="index.html" class="back link icon-only"><i class="icon icon-back"></i></a></div>
+            <div class="center">Report Incident</div>
+            <div class="right"><a href="#" class="open-panel link icon-only"><i class="icon icon-bars"></i></a></div>
+        </div>
+    </div>
+    <div class="page-content">
+
+        <div class="col-sm-12">
+
+            <form action="" id="userContact" method="POST" class="list-block">
+                <div class="inner">
+                    <h2>Personal Information</h2>
+                    <ul>
+                        <li>
+                            <div class="item-content">
+                                <div class="item-media"><i class="fa fa-user"></i></div>
+                                <div class="item-inner"> 
+                                    <div class="item-input">
+                                        <input id="firstname" type="text"  name="firstname" placeholder="Firstname" class="form-control" >
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="item-content">
+                                <div class="item-media"><i class="fa fa-user"></i></div>
+                                <div class="item-inner"> 
+                                    <div class="item-input">
+                                        <input  id="surname" name="surname" type="text" placeholder="Surname" class="form-control" >
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="item-content">
+                                <div class="item-media"><i class="fa fa-at"></i></div>
+                                <div class="item-inner"> 
+                                    <div class="item-input">
+                                        <input  id="email" name="email" type="email" placeholder="E-mail" class="form-control" >
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="item-content">
+                                <div class="item-media"><i class="fa fa-phone"></i></div>
+                                <div class="item-inner"> 
+                                    <div class="item-input">
+                                        <input  id="tel" name="tel" type="email" placeholder="Phone"  class="form-control" >
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                </div> 
+                <div class="inner">
+                    <h2>Incident Information</h2>
+                    <ul>
+                        <li><a href="#" class="item-link smart-select">
+                                <select id="incident_routes"  name="incident_routes">
+                                    <option value="F-1 Bester Route">F-1 Bester Route</option>
+                                    <option value="F-2 Assegaai Route">F-2 Assegaai Route</option>
+                                    <option value="F-3 Dr Moroka Route">F-3 Dr Moroka Route</option>
+                                    <option value="F-4 Monareng Route">F-4 Monareng Route</option>
+                                    <option value="F-5 Moumo Route">F-5 Moumo Route</option>
+                                    <option value="F-6  Motsatsi Route">F-6  Motsatsi Route</option>
+                                    <option value="F-7 Makhani Route">F-7 Makhani Route</option>
+                                    <option value="F-8 Foord Route">F-8 Foord Route</option>
+                                </select>
+                                <div class="item-content">
+                                    <div class="item-inner">
+                                        <div class="item-title label">Which route?</div>
+                                        <div class="item-after">Driving</div></div>
+                                </div></a>
+                        </li>
+                        <li>
+                            <div class="item-content">
+                                <div class="item-title label">Date & Time</div>
+                                <div class="item-inner"> 
+                                    <div class="item-input">
+                                        <div class="col-md-6">
+                                            <input id="field_date" name="date" value="01/01/2017" class="form-control" placeholder="Date" required="" type="date" style="background: #454545;border-bottom: 1px solid #eee"> 
+                                        </div>
+                                        <div class="col-md-6">
+                                            <input id="field_time" name="time" value="08:00" class="form-control" placeholder="Time" required="" type="time" style="background: #454545">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="item-content">
+                                <div class="item-media"><i class="fa fa-map-marker"></i></div>
+                                <div class="item-inner"> 
+                                    <div class="item-input">
+                                        <input id="field_location" name="location" class="form-control" placeholder="&nbsp;Location" required="" value="" type="text">
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="item-content">
+                                <div class="item-media"><i class="fa fa-car"></i></div>
+                                <div class="item-inner"> 
+                                    <div class="item-input">
+                                        <input id="field_vehicle" name="vehicle" class="form-control" placeholder="Vehicle #" required="" value="" type="text">
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="item-content">
+                                <div class="item-inner"> 
+                                    <div class="item-input">
+                                        <textarea id="field_message" class="form-control" name="message" placeholder="Detail of Incident" rows="4" maxlength="500"></textarea>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+
+                </div>
+
+                <div class="inner">
+                    <div class="form-group text-center">
+                        <div class="col-md-12">
+                            <input type="hidden" name="subject" value="incident">
+                            <p><br><input value="Send" id="btnsubmit" name="button" onclick="sendMessage()" class="btn btn-success green" type="button"></p>
+                        </div>
+                        <div class="clearfix"></div>
+
+                    </div>
+                </div>
+
+
+            </form>
+
+        </div>
+    </div>
