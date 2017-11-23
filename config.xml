@@ -25,6 +25,9 @@
     <platform name="ios">
         <allow-intent href="itms:*" />
         <allow-intent href="itms-apps:*" />
+        <icon height="50" platform="ios" src="res/icon/ios/dd" width="50" />
+        <icon height="120" platform="ios" src="res/icon/ios/icon-60@2x.png" width="120" />
+        <splash height="480" platform="ios" src="res/screen/ios/Default~iphone.png" width="320" />
     </platform>
     <platform name="wp8">
         <icon height="99" platform="wp8" src="res/icon/android/icon-48-mdpi.png" width="99" />
@@ -48,3 +51,4 @@
     <plugin name="cordova-plugin-geolocation" spec="^2.1.0" />
     
 </widget>
+
