@@ -26,8 +26,7 @@
     "platforms": [
       "android",
       "browser",
-      "windows",
-      "ios"
+      "windows"
     ],
     "plugins": {
       "cordova-plugin-whitelist": {},
