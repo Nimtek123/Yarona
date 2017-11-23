@@ -12,6 +12,7 @@
   "dependencies": {
     "cordova-android": "^6.4.0",
     "cordova-browser": "^4.1.0",
+    "cordova-ios": "^4.5.4",
     "cordova-plugin-device": "^1.1.7",
     "cordova-plugin-device-orientation": "^1.0.7",
     "cordova-plugin-geolocation": "^2.1.0",
@@ -25,7 +26,8 @@
     "platforms": [
       "android",
       "browser",
-      "windows"
+      "windows",
+      "ios"
     ],
     "plugins": {
       "cordova-plugin-whitelist": {},
