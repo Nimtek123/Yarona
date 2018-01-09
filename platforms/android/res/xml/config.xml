@@ -20,9 +20,6 @@
         <param name="android-package" value="org.apache.cordova.splashscreen.SplashScreen" />
         <param name="onload" value="true" />
     </feature>
-    <feature name="Geolocation">
-        <param name="android-package" value="org.apache.cordova.geolocation.Geolocation" />
-    </feature>
     <name>Yarona</name>
     <description>
         The Yarona app lets you manage your transportation in Rustenburg 
@@ -44,4 +41,7 @@
     <splash density="land-ldpi" src="res/screen/android/screen-hdpi-landscape.png" />
     <splash density="port-ldpi" src="res/screen/android/screen-hdpi-portrait.png" />
     <preference name="loglevel" value="DEBUG" />
+    <feature name="Geolocation">
+        <param name="android-package" value="org.apache.cordova.geolocation.Geolocation" />
+    </feature>
 </widget>
