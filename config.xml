@@ -25,9 +25,9 @@
     <icon src="icon.png" />
     <splash src="splash.png" />
     <platform name="ios">
-    	<config-file target="*-Info.plist" parent="NSLocationWhenInUseUsageDescription">
-		<string>Allow Yarona to use your current location to see stops near you</string>
-     	</config-file>
+    	<edit-config target="NSLocationWhenInUseUsageDescription" file="*-Info.plist" mode="merge">
+	    <string>Yarona needs location access to show stops near you</string>
+	</edit-config>
         <icon height="57" src="res/icon/ios/Icon.png" width="57" />
         <icon height="100" src="res/icon/ios/Icon-50@2x.png" width="100" />
         <icon height="120" src="res/icon/ios/Icon-60@2x.png" width="120" />
@@ -71,7 +71,7 @@
     <plugin name="cordova-plugin-inappbrowser" spec="^1.7.2" />
     <plugin name="cordova-plugin-network-information" spec="^1.3.4" />
     <plugin name="cordova-plugin-splashscreen" spec="^3.2.2" />
-    <plugin name="cordova-plugin-geolocation" spec="~2.4.3">
+    <plugin name="cordova-plugin-geolocation" spec="^4.0.1">
 	<variable name="GEOLOCATION_USAGE_DESCRIPTION" value="Allow Yarona to use your current location to see stops near you" />
     </plugin>
 </widget>
